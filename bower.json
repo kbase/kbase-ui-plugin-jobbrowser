@@ -1,0 +1,31 @@
+{
+    "name": "kbase-ui-plugin-jobbrowser",
+    "description": "A browser of jobs",
+    "author": [
+        "kbase"
+    ],
+    "keywords": [
+        "kbase",
+        "ui",
+        "plugin",
+        "widget",
+	"job"
+    ],
+    "moduleType": "kbase-ui-plugin",
+    "main": "src/plugin/config.yml",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/kbase/kbase-ui-plugin-jobbrowser"
+    },
+    "dependencies": {
+        "jquery": "^2.1.0",
+        "bluebird": "^3.0.0",
+        "kbase-service-client-js": "^0.1.5"
+    },
+    "devDependencies": {
+    },
+    "ignore": [
+        ".gitignore"
+    ],
+    "license": "SEE LICENSE IN LICENSE.md"
+}

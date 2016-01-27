@@ -1,0 +1,31 @@
+## Demo Plugin for Screencast
+---
+package:
+    author: Erik Pearson
+    name: jobbrowser
+    description: A plugin installing a route, menu definition, and widgets implementing a simple job file browser.
+    date: January 26, 2016
+    version: 0.1.0
+source:
+    modules: []
+install:    
+    widgets:
+        -
+            module: plugins/jobbrowser/modules/browser
+            id: kb_jobbrowser_panel 
+            type: factory
+#        -
+#            module: plugins/jobbrowser/modules/browser
+#            id: kb_jobbrowser_browser
+#            type: factory
+    routes:
+        -
+            path: [jobbrowser]
+            widget: kb_jobbrowser_panel
+    menu:
+        -
+            name: jobbrowser
+            definition:
+                path: jobbrowser
+                label: Jobs Browser
+                icon: file
