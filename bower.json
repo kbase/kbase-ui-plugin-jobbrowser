@@ -20,7 +20,7 @@
     "dependencies": {
         "jquery": "^2.1.0",
         "bluebird": "^3.0.0",
-        "kbase-service-clients-js": "^0.1.5"
+        "kbase-service-clients-js": "^1.0.0"
     },
     "devDependencies": {
     },
