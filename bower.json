@@ -9,7 +9,7 @@
         "ui",
         "plugin",
         "widget",
-	"job"
+        "job"
     ],
     "moduleType": "kbase-ui-plugin",
     "main": "src/plugin/config.yml",
@@ -20,10 +20,9 @@
     "dependencies": {
         "jquery": "^2.1.0",
         "bluebird": "^3.0.0",
-        "kbase-service-clients-js": "^1.0.0"
+        "kbase-service-clients-js": "^3.0.0"
     },
-    "devDependencies": {
-    },
+    "devDependencies": {},
     "ignore": [
         ".gitignore"
     ],

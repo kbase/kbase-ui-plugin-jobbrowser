@@ -2,11 +2,12 @@
 /*jslint white:true,browser:true*/
 define([
     'numeral',
-    'kb/service/client/userAndJobState',
-    'kb/common/html',
-    'kb/common/format'
-], function (numeral, UJS, html, format) {
+    'kb_service/client/userAndJobState',
+    'kb_common/html',
+    'kb_common/format'
+], function(numeral, UJS, html, format) {
     'use strict';
+
     function factory(config) {
         var runtime = config.runtime,
             parent, container,
@@ -19,13 +20,13 @@ define([
 
         function jobInfoToObject(jobInfo) {
             var properties = [
-                'job', 'service', 'stage', 'started', 'status', 'last_update',
-                'prog', 'max', 'ptype', 'est_complete', 'complete', 'error',
-                'desc', 'job_info'
-            ],
+                    'job', 'service', 'stage', 'started', 'status', 'last_update',
+                    'prog', 'max', 'ptype', 'est_complete', 'complete', 'error',
+                    'desc', 'job_info'
+                ],
                 jobInfoObject = {};
 
-            properties.forEach(function (key, index) {
+            properties.forEach(function(key, index) {
                 jobInfoObject[key] = jobInfo[index];
             });
             return jobInfoObject;
@@ -63,45 +64,49 @@ define([
 
         function renderTable(jobs) {
             var t = html.tag,
-                table = t('table'), tr = t('tr'), th = t('th'), td = t('td');
+                table = t('table'),
+                tr = t('tr'),
+                th = t('th'),
+                td = t('td');
 
-            return table({class: 'table'}, [
+            return table({ class: 'table' }, [
                 tr([
                     th('#'), th('Id'), th('Service'), th('Description'), th('Started'), th('Status'), th('Complete?'), th('Error?')
                 ]),
                 jobs
-                    .sort(function (a, b) {
-                        if (a.started > b.started) {
-                            return -1;
-                        }
-                        return 1;
-                    })
-                    .map(function (jobInfo, index) {
-                        // console.log(file);
-                        //var created = new Date(file.created_on);                        
-                        return tr([
-                            td(String(index + 1)),
-                            td(jobInfo.job),
-                            td(jobInfo.service),
-                            td(jobInfo.desc),
-                            td(niceDate(jobInfo.started)),
-                            td(jobInfo.status),
-                            td(jobInfo.complete),
-                            td(jobInfo.error)
-                        ]);
-                    })
+                .sort(function(a, b) {
+                    if (a.started > b.started) {
+                        return -1;
+                    }
+                    return 1;
+                })
+                .map(function(jobInfo, index) {
+                    // console.log(file);
+                    //var created = new Date(file.created_on);                        
+                    return tr([
+                        td(String(index + 1)),
+                        td(jobInfo.job),
+                        td(jobInfo.service),
+                        td(jobInfo.desc),
+                        td(niceDate(jobInfo.started)),
+                        td(jobInfo.status),
+                        td(jobInfo.complete),
+                        td(jobInfo.error)
+                    ]);
+                })
             ]);
         }
 
         function render(jobs) {
-            var t = html.tag, div = t('div');
+            var t = html.tag,
+                div = t('div');
 
-            return div({class: 'container-fluid'}, [
-                div({class: 'panel panel-default'}, [
-                    div({class: 'panel-heading'}, [
-                        div({class: 'panel-title'}, 'Jobs Browser')
+            return div({ class: 'container-fluid' }, [
+                div({ class: 'panel panel-default' }, [
+                    div({ class: 'panel-heading' }, [
+                        div({ class: 'panel-title' }, 'Jobs Browser')
                     ]),
-                    div({class: 'panel-body'}, [
+                    div({ class: 'panel-body' }, [
                         renderTable(jobs)
                     ])
                 ])
@@ -119,21 +124,20 @@ define([
         function start(params) {
             // get a list of shock nodes.
             return jobsClient.list_jobs().
-                then(function (jobs) {
-                    //console.log(jobs);
-                    //container.innerHTML = 'Hi';
-                    container.innerHTML = render(jobs.map(function (job) {
-                        return jobInfoToObject(job);
-                    }));
-//                    return nodes.map(function (node) {
-//                        return shockClient.get_node_acls(node.id);
-//                    });
+            then(function(jobs) {
+                //console.log(jobs);
+                //container.innerHTML = 'Hi';
+                container.innerHTML = render(jobs.map(function(job) {
+                    return jobInfoToObject(job);
+                }));
+                //                    return nodes.map(function (node) {
+                //                        return shockClient.get_node_acls(node.id);
+                //                    });
 
-                });
+            });
         }
 
-        function stop() {
-        }
+        function stop() {}
 
         function detach() {
             if (container) {
@@ -149,7 +153,7 @@ define([
         };
     }
     return {
-        make: function (config) {
+        make: function(config) {
             return factory(config);
         }
     };
