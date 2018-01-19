@@ -10,7 +10,7 @@ source:
 install:
     widgets:
         -
-            module: plugins/jobbrowser/modules/browser
+            module: browser
             id: kb_jobbrowser_panel
             type: factory
 #        -
