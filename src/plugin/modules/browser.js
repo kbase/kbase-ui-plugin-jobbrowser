@@ -1,11 +1,9 @@
 define([
-    'uuid',
     'jquery',
     'kb_service/client/userAndJobState',
     'kb_common/html',
     'plugins/catalog/modules/widgets/kbaseCatalogStats',
 ], function (
-    Uuid,
     $,
     UJS,
     html,
@@ -15,22 +13,21 @@ define([
 
     function factory(config) {
         var runtime = config.runtime,
-            parent, container, containerId;
-        var jobsClient = new UJS(runtime.getConfig('services.user_job_state.url'), {
-            token: runtime.service('session').getAuthToken()
-        });
+            hostNode, container;
+
+        // var jobsClient = new UJS(runtime.getConfig('services.user_job_state.url'), {
+        //     token: runtime.service('session').getAuthToken()
+        // });
 
         // API
 
         function attach(node) {
-            parent = node;
-            container = parent.appendChild(document.createElement('div'));
-            containerId = new Uuid(4).format();
-            container.id = containerId;
+            hostNode = node;
+            container = hostNode.appendChild(document.createElement('div'));
         }
 
         function start(params) {
-            runtime.send('ui', 'setTitle', 'Jobs Browser');
+            runtime.send('ui', 'setTitle', 'Job Browser');
 
             // add on a container div, then turn that into a kbaseCatalogStats widget, with a few extra options flagged.
 
@@ -51,15 +48,15 @@ define([
                     includeUserRunSummary: false,
                     useUserRecentRuns: true,
                 },
-                $('#' + containerId)
+                $(container)
             );
         }
 
         function stop() { }
 
         function detach() {
-            if (container) {
-                parent.removeChild(container);
+            if (hostNode && container) {
+                hostNode.removeChild(container);
             }
         }
 
@@ -71,8 +68,6 @@ define([
         };
     }
     return {
-        make: function (config) {
-            return factory(config);
-        }
+        make: factory
     };
 });

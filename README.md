@@ -1,1 +1,1 @@
-# KBase Shock Browser Plugin
+# Job Browser
