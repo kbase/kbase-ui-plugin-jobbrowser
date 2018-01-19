@@ -4,7 +4,6 @@ package:
     name: jobbrowser
     description: A plugin to display a user's jobs
     date: January 17, 2018
-    version: 0.1.0
 source:
     modules: []
 install:
@@ -13,10 +12,6 @@ install:
             module: browser
             id: kb_jobbrowser_panel
             type: factory
-#        -
-#            module: plugins/jobbrowser/modules/browser
-#            id: kb_jobbrowser_browser
-#            type: factory
     routes:
         -
             path: [jobbrowser]
