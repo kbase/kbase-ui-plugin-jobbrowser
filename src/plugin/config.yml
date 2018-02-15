@@ -19,7 +19,6 @@ install:
     menu:
         -
             name: jobbrowser
-            definition:
-                path: jobbrowser
-                label: Jobs Browser
-                icon: cog
+            path: jobbrowser
+            label: Jobs
+            icon: suitcase
