@@ -16,6 +16,8 @@ install:
         -
             path: [jobbrowser]
             widget: kb_jobbrowser_panel
+            authorization: true
+
     menu:
         -
             name: jobbrowser
