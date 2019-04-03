@@ -10,7 +10,7 @@ require.config({
         datatables_css: 'vendor/datatables/jquery.dataTables',
         datatables_bootstrap_css: 'vendor/datatables-bootstrap3-plugin/datatables-bootstrap3',
         datatables_bootstrap: 'vendor/datatables-bootstrap3-plugin/datatables-bootstrap3',
-        fileSaver: 'vendor/file-saver/fileSaver',
+        fileSaver: 'vendor/file-saver/FileSaver',
         font_awesome: 'vendor/font-awesome/css/font-awesome',
         highlight_css: 'vendor/highlightjs/default',
         highlight: 'vendor/highlightjs/highlight.pack',
