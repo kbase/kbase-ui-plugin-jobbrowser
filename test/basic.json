@@ -1,0 +1,48 @@
+[
+    {
+        "description": "Ensure main view appears",
+        "specs": [
+            {
+                "description": "should have main panel framing appear when hit the path",
+                "baseSelector": [],
+                "tasks": [
+                    {
+                        "title": "login",
+                        "subtask": "login"
+                    },
+
+                    {
+                        "title": "navigate to job browser",
+                        "navigate": {
+                            "path": "jobbrowser"
+                        }
+                    },
+                    {
+                        "switchToFrame": {
+                            "selector": [
+                                {
+                                    "type": "iframe",
+                                    "value": "plugin-iframe"
+                                }
+                            ],
+                            "wait": 1000
+                        }
+                    },
+                    {
+                        "selector": [
+                            {
+                                "type": "plugin",
+                                "value": "jobbrowser"
+                            },
+                            {
+                                "type": "widget",
+                                "value": "kbaseCatalogStats"
+                            }
+                        ],
+                        "wait": 10000
+                    }
+                ]
+            }
+        ]
+    }
+]

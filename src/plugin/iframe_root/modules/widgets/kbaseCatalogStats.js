@@ -696,7 +696,7 @@ define([
         },
 
         initMainPanel: function () {
-            var $mainPanel = $('<div>').addClass('container-fluid');
+            var $mainPanel = $('<div data-k-b-testhook-widget="kbaseCatalogStats">').addClass('container-fluid');
 
             $mainPanel.append(
                 $('<div>')
