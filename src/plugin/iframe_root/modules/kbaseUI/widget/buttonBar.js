@@ -196,12 +196,13 @@ define(['jquery'], function ($) {
                         } else {
                             var menuItem = $('<li></li>');
 
+                            let link;
                             if (item.url) {
-                                var link = $('<a></a>')
+                                link = $('<a></a>')
                                     .attr('href', item.url)
                                     .attr('data-menu-item', item.name);
                             } else if (item.callback) {
-                                var link = $('<a></a>')
+                                link = $('<a></a>')
                                     .attr('href', '#')
                                     .attr('data-menu-item', item.name)
                                     .on('click', item.callback);
@@ -234,28 +235,29 @@ define(['jquery'], function ($) {
             makeMenuItem: {
                 value: function (cfg) {
                     if (cfg.type === 'divider') {
-                        var item = $('<li  role="presentation" class="divider"></li>').attr('data-menu-item', cfg.name);
-                    } else {
-                        var item = $('<li></li>');
-                        if (cfg.url) {
-                            var link = $('<a></a>')
-                                .attr('href', cfg.url)
-                                .attr('data-menu-item', cfg.name);
-                        } else if (cfg.callback) {
-                            var link = $('<a></a>')
-                                .attr('href', '#')
-                                .attr('data-menu-item', cfg.name)
-                                .on('click', cfg.callback);
-                        }
-                        if (item.external) {
-                            link.attr('target', '_blank');
-                        }
-                        var icon = $('<div class="navbar-icon" style=""></div>');
-                        if (cfg.icon) {
-                            icon.append($('<span class="fa fa-' + cfg.icon + '"  class="navbar-icon"></span>'));
-                        }
-                        item.append(link.append(icon).append(cfg.label));
+                        return $('<li  role="presentation" class="divider"></li>').attr('data-menu-item', cfg.name);
                     }
+
+                    const item = $('<li></li>');
+                    let link;
+                    if (cfg.url) {
+                        link = $('<a></a>')
+                            .attr('href', cfg.url)
+                            .attr('data-menu-item', cfg.name);
+                    } else if (cfg.callback) {
+                        link = $('<a></a>')
+                            .attr('href', '#')
+                            .attr('data-menu-item', cfg.name)
+                            .on('click', cfg.callback);
+                    }
+                    if (item.external) {
+                        link.attr('target', '_blank');
+                    }
+                    const icon = $('<div class="navbar-icon" style=""></div>');
+                    if (cfg.icon) {
+                        icon.append($('<span class="fa fa-' + cfg.icon + '"  class="navbar-icon"></span>'));
+                    }
+                    item.append(link.append(icon).append(cfg.label));
                     return item;
                 }
             },

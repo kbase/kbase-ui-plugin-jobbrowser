@@ -1,4 +1,4 @@
-define(['kb_lib/html', './windowChannel', 'kb_lib/httpUtils'], function(html, WindowChannel, httpUtils) {
+define(['kb_lib/html', './windowChannel', 'kb_lib/httpUtils'], function (html, WindowChannel, httpUtils) {
     'use strict';
 
     var t = html.tag,
@@ -47,6 +47,7 @@ define(['kb_lib/html', './windowChannel', 'kb_lib/httpUtils'], function(html, Wi
                     iframe({
                         id: this.id,
                         name: this.id,
+                        dataKBTesthookIframe: 'plugin-iframe',
                         dataParams: encodeURIComponent(JSON.stringify(params)),
                         style: {
                             width: '100%',
