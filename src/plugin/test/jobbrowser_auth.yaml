@@ -1,7 +1,7 @@
 ---
-description: Job browser main view with auth
+description: Accessing the job browser with authentication
 specs:
-  - description: should find the catalog stats widget
+  - description: should show the primary widget
     baseSelector: []
     tasks:
       - subtask: login

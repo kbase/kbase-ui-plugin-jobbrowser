@@ -1,7 +1,7 @@
 ---
-description: Unauthenticated
+description: Accessing the job browser with authentication
 specs:
-  - description: should get the signin page
+  - description: should get the signin page with the jobbrowser path displayed
     baseSelector: []
     tasks:
       - action: navigate
